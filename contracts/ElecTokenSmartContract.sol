@@ -26,7 +26,7 @@ contract ElecTokenSmartContract is StandardToken, Ownable {
         _;
     }
 
-    function TokenSmartContract( uint tokenTotalAmount, uint startTime, uint endTime, address admin ) {
+    function ElecTokenSmartContract( uint tokenTotalAmount, uint startTime, uint endTime, address admin ) {
         // Mint all tokens. Then disable minting forever.
         balances[msg.sender] = tokenTotalAmount;
         totalSupply = tokenTotalAmount;
