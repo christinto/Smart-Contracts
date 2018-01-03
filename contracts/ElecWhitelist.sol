@@ -12,7 +12,7 @@ contract ElecWhitelist is Ownable {
 
     event ListAddress( address _user, uint _cap, uint _time );
 
-    // Owner can delist by setting cap = 0.
+    // Owner can remove by setting cap = 0.
     // Onwer can also change it at any time
     function listAddress( address _user, uint _cap ) onlyOwner {
         addressCap[_user] = _cap;
@@ -33,7 +33,6 @@ contract ElecWhitelist is Ownable {
 
     function getCap( address _user ) constant returns(uint) {
         uint cap = addressCap[_user];
-
         if( cap == 1 ) return communityusersCap;
         else return cap;
     }

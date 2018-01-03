@@ -1,5 +1,4 @@
 var ConvertLib = artifacts.require("./ConvertLib.sol");
-var MetaCoin = artifacts.require("./MetaCoin.sol");
 var BigNumber = require("bignumber.js");
 
 var ElecList = artifacts.require("./ElecWhitelist.sol");
@@ -13,19 +12,19 @@ var cappedSale_second_from_now = Math.floor(Date.now() / 1000) +  120;
 var saleStartTime_second_from_now = Math.floor(Date.now() / 1000) +  600;
 var saleEndTime_second_from_now = Math.floor(Date.now() / 1000) +  3600*24;
 
-var ElecListAddress="0x37339c780fbcb2761617ba19d070eb3898b6d785";
+var ElecListAddress="0xc6eb0ad58127a6bbf210d8c81acaecdf5836ef69";
 
 module.exports = function(deployer) {
  /* deployer.deploy(ConvertLib);
   deployer.link(ConvertLib, MetaCoin);
   deployer.deploy(MetaCoin);*/
  // deployer.deploy(ElecList);
-   deployer.deploy(ElecApprover, ElecListAddress, cappedSale_second_from_now, saleStartTime_second_from_now, saleEndTime_second_from_now);
-/*
+  // deployer.deploy(ElecApprover, ElecListAddress, cappedSale_second_from_now, saleStartTime_second_from_now, saleEndTime_second_from_now);
+
 
   deployer.deploy(ElecSale, adminAddress, multiSigWallet, ElecListAddress, totalTokeSupply,
         forCompany, cappedSale_second_from_now, saleStartTime_second_from_now, saleEndTime_second_from_now);
-*/
+
 
 
 };
