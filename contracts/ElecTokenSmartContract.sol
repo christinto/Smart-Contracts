@@ -10,11 +10,12 @@ contract ElecTokenSmartContract is StandardToken, Ownable {
 
     uint    public  saleStartTime;
     uint    public  saleEndTime;
+    uint    public lockedDays = 0;
 
     address public  tokenSaleContract;
 
     modifier onlyWhenTransferEnabled() {
-        if( now <= saleEndTime && now >= saleStartTime ) {
+        if( now <= (saleEndTime + lockedDays * 1 days) && now >= saleStartTime ) {
             require( msg.sender == tokenSaleContract );
         }
         _;
@@ -26,7 +27,7 @@ contract ElecTokenSmartContract is StandardToken, Ownable {
         _;
     }
 
-    function ElecTokenSmartContract( uint tokenTotalAmount, uint startTime, uint endTime, address admin ) {
+    function ElecTokenSmartContract( uint tokenTotalAmount, uint startTime, uint endTime, uint lockedTime, address admin ) {
         // Mint all tokens. Then disable minting forever.
         balances[msg.sender] = tokenTotalAmount;
         totalSupply = tokenTotalAmount;
@@ -34,6 +35,7 @@ contract ElecTokenSmartContract is StandardToken, Ownable {
 
         saleStartTime = startTime;
         saleEndTime = endTime;
+        lockedDays = lockedTime;
 
         tokenSaleContract = msg.sender;
         transferOwnership(admin); // admin could drain tokens that were sent here by mistake

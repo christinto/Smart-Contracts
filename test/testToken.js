@@ -12,6 +12,8 @@ var saleEndTime;
 var tokenOwner;
 var tokenAdmin;
 
+var lockedDay = 0;
+
 var totalSupply = web3.toWei( new BigNumber(200000000), "ether" );
 
 
@@ -44,7 +46,7 @@ contract('token contract', function(accounts) {
         saleEndTime = saleStartTime + 28800;
 
         // deploy a ELEC token
-        return Token.new(totalSupply, saleStartTime,saleEndTime, tokenAdmin, {from: tokenOwner}).then(function(result){
+        return Token.new(totalSupply, saleStartTime,saleEndTime, lockedDay, tokenAdmin, {from: tokenOwner}).then(function(result){
             tokenContract = result;
 
             // return totalSupply of contract
@@ -262,7 +264,7 @@ contract('token contract', function(accounts) {
         saleStartTime = currentTime + 120;
         saleEndTime = saleStartTime + 288000;
 
-        return Token.new(totalSupply, saleStartTime,saleEndTime, tokenAdmin, {from: tokenOwner}).then(function(result){
+        return Token.new(totalSupply, saleStartTime,saleEndTime, lockedDay, tokenAdmin, {from: tokenOwner}).then(function(result){
             tokenContract = result;
 
             // check total supply
@@ -290,7 +292,7 @@ contract('token contract', function(accounts) {
         saleStartTime = currentTime + 120;
         saleEndTime = saleStartTime + 288000;
 
-        return Token.new(totalSupply, saleStartTime,saleEndTime, tokenAdmin, {from: accounts[5]}).then(function(result){
+        return Token.new(totalSupply, saleStartTime,saleEndTime, lockedDay, tokenAdmin, {from: accounts[5]}).then(function(result){
             erc20TokenContract = result;
             return erc20TokenContract.transfer(tokenContract.address,new BigNumber(100),{from:accounts[5]});
         }).then(function(){

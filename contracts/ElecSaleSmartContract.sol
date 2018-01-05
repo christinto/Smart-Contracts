@@ -20,7 +20,8 @@ contract ElecSaleSmartContract is ElecApprover{
     uint _premintedTokenSupply,
     uint _cappedSaleStartTime,
     uint _publicSaleStartTime,
-    uint _publicSaleEndTime )
+    uint _publicSaleEndTime,
+    uint _lockedDays)
 
     ElecApprover( _whiteListContract,
     _cappedSaleStartTime,
@@ -33,6 +34,7 @@ contract ElecSaleSmartContract is ElecApprover{
         token = new ElecTokenSmartContract( _totalTokenSupply,
         _cappedSaleStartTime,
         _publicSaleEndTime + 7 days, /// 7 can changed depending on each project
+        _lockedDays, ///change depending on each project
         _admin );
 
         // transfer preminted tokens to company wallet

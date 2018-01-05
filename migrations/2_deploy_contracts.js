@@ -13,15 +13,13 @@ var saleStartTime_second_from_now = Math.floor(Date.now() / 1000) +  60;
 var saleEndTime_second_from_now = Math.floor(Date.now() / 1000) +  3600*24;
 
 var ElecListAddress="0x7ef5c256f224b4157117872ed44e8afc0686b215";
+var lockedDays = 7;
 
 module.exports = function(deployer) {
  //deployer.deploy(ElecList);
-  // deployer.deploy(ElecApprover, ElecListAddress, cappedSale_second_from_now, saleStartTime_second_from_now, saleEndTime_second_from_now);
-
-
 
  deployer.deploy(ElecSale, adminAddress, multiSigWallet, ElecListAddress, totalTokeSupply,
-        forCompany, cappedSale_second_from_now, saleStartTime_second_from_now, saleEndTime_second_from_now);
+        forCompany, cappedSale_second_from_now, saleStartTime_second_from_now, saleEndTime_second_from_now, lockedDays);
 
 
 

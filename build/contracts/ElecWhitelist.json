@@ -187,10 +187,10 @@
           "type": "event"
         }
       },
-      "updated_at": 1515121550883,
+      "updated_at": 1515123621338,
       "address": "0x7ef5c256f224b4157117872ed44e8afc0686b215"
     }
   },
   "schema_version": "0.0.5",
-  "updated_at": 1515121550883
+  "updated_at": 1515123621338
 }
