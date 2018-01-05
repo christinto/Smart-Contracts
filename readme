@@ -5,5 +5,4 @@ how to connect rinkeby by geth in Mac
 
 deploy
 1. Deploy Elecwhitelistcontract
-2. Deploy ElecApproverContract
-3. Deploy ElecSaleSmartContract
+2. Deploy ElecSaleSmartContract

@@ -34,6 +34,7 @@ contract ElecApprover {
         return list.getCap( contributor );
     }
 
+
     function eligible( address contributor, uint amountInWei ) constant returns(uint) {
         if( now < cappedSaleStartTime ) return 0;
         if( now >= openSaleEndTime ) return 0;
@@ -41,22 +42,24 @@ contract ElecApprover {
         uint cap = contributorCap( contributor );
 
         if( cap == 0 ) return 0;
-        if( now < openSaleStartTime ) {
-            uint remainedCap = cap.sub( participated[ contributor ] );
 
-            if( remainedCap > amountInWei ) return amountInWei;
-            else return remainedCap;
-        }
-        else {
-            return amountInWei;
-        }
+        uint remainedCap = cap.sub( participated[ contributor ] );
+
+        if( remainedCap > amountInWei ) return amountInWei;
+        else return remainedCap;
     }
 
     function eligibleTestAndIncrement( address contributor, uint amountInWei ) internal returns(uint) {
         uint result = eligible( contributor, amountInWei );
-        participated[contributor] = participated[contributor].add( result );
-
+        if ( result > 0) {
+            participated[contributor] = participated[contributor].add( result );
+        }
         return result;
+    }
+
+
+    function contributedCap(address _contributor) constant returns(uint) {
+        return participated[_contributor];
     }
 
     function saleEnded() constant returns(bool) {

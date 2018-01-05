@@ -54,6 +54,7 @@ contract ElecSaleSmartContract is ElecApprover{
         proxyPurchases[proxy] = proxyPurchases[proxy].add(amount);
         ProxyBuy( proxy, recipient, amount );
 
+
         return amount;
     }
 

@@ -53,6 +53,18 @@ contract ElecTokenSmartContract is StandardToken, Ownable {
         return super.transferFrom(_from, _to, _value);
     }
 
+    event Burn(address indexed _burner, uint _value);
+
+    function burn(uint _value) onlyWhenTransferEnabled
+    returns (bool){
+        balances[msg.sender] = balances[msg.sender].sub(_value);
+        totalSupply = totalSupply.sub(_value);
+        Burn(msg.sender, _value);
+        Transfer(msg.sender, address(0x0), _value);
+        return true;
+    }
+
+
     function emergencyERC20Drain( ERC20 token, uint amount ) onlyOwner {
         token.transfer( owner, amount );
     }
