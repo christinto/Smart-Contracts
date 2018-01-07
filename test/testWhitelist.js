@@ -54,7 +54,8 @@ contract('white list', function(accounts) {
         return listContract.setUsersCap(userCapAmount.plus(5), {from:nonOwner}).then(function(){
             assert.fail("failed to set user cap");
         }).catch(function(error){
-            assert( Helpers.throwErrorMessage(error), error);
+            assert.isAbove(error.message.search('revert'), -1, 'Revert opcode error must be returned');
+            // assert( Helpers.throwErrorMessage(error), error);
             // check that value was not set
             return listContract.communityusersCap();
         }).then(function(result){
@@ -67,7 +68,8 @@ contract('white list', function(accounts) {
         return listContract.transferOwnership(accounts[3], {from:nonOwner}).then(function(){
             assert.fail("failed to transferOwnership account");
         }).catch(function(error){
-            assert( Helpers.throwErrorMessage(error), error);
+            assert.isAbove(error.message.search('revert'), -1, 'Revert opcode error must be returned');
+            //  assert( Helpers.throwErrorMessage(error), error);
             // check that value was not set
             return listContract.owner();
         }).then(function(result){
@@ -117,7 +119,8 @@ contract('white list', function(accounts) {
         return listContract.listAddresses(addresses,caps,{from:nonOwner}).then(function(){
             assert.fail("expected to fail");
         }).catch(function(error){
-            assert( Helpers.throwErrorMessage(error), error);
+            assert.isAbove(error.message.search('revert'), -1, 'Revert opcode error must be returned');
+            // assert( Helpers.throwErrorMessage(error), error);
         });
     });
 
@@ -126,7 +129,8 @@ contract('white list', function(accounts) {
         return listContract.listAddress(addresses[1],caps[1],{from:nonOwner}).then(function(){
             assert.fail("expected to fail");
         }).catch(function(error){
-            assert( Helpers.throwErrorMessage(error), error);
+            assert.isAbove(error.message.search('revert'), -1, 'Revert opcode error must be returned');
+            //assert( Helpers.throwErrorMessage(error), error);
         });
     });
 
@@ -135,7 +139,8 @@ contract('white list', function(accounts) {
         return listContract.destroy({from:nonOwner}).then(function(){
             assert.fail("expected to fail");
         }).catch(function(error){
-            assert( Helpers.throwErrorMessage(error), error);
+            assert.isAbove(error.message.search('revert'), -1, 'Revert opcode error must be returned');
+            //assert( Helpers.throwErrorMessage(error), error);
         });
     });
 

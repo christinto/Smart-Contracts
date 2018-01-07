@@ -30,6 +30,8 @@ contract('token contract', function(accounts) {
         done();
     });
 
+   
+
     it("mine one block to get current time", function() {
         return Helpers.sendPromise( 'evm_mine', [] );
     });
@@ -109,18 +111,19 @@ contract('token contract', function(accounts) {
     });
 
     /// admin is not able to transfer token during token sale
-    it("transfer from non owner during crowdsale period", function() {
+    it("fail Transfer from non owner during crowdsale period", function() {
         var value = new BigNumber(5);
         // transfer token by admin account - accounts[1]
         return tokenContract.transfer(accounts[1], value, {from:accounts[2]}).then(function(){
-            assert.fail("Admin is failed to transfer token during crowdsale period");
+            assert.fail("transfer is during sale is expected to fail");
         }).catch(function(error){
-            assert( Helpers.throwErrorMessage(error), error);
+            assert.isAbove(error.message.search('revert'), -1, 'Revert opcode error must be returned');
+
         });
     });
 
     /// non-onwner is not able to transfer token during token sale
-    it("transfer from non owner during crowdsale", function() {
+    it("fail TransferFrom non owner during crowdsale", function() {
         var value = new BigNumber(5);
         /// transfer token from normal account
         return tokenContract.approve(accounts[5], value, {from:accounts[2]}).then(function(){
@@ -128,7 +131,7 @@ contract('token contract', function(accounts) {
         }).then(function(){
             assert.fail("normal account is failed to transfer token during crowdsale perdiod");
         }).catch(function(error){
-            assert( Helpers.throwErrorMessage(error), error);
+            assert.isAbove(error.message.search('revert'), -1, 'Revert opcode error must be returned');
             // revert approve
             return tokenContract.approve(accounts[5], new BigNumber(0), {from:accounts[2]});
         });
@@ -158,6 +161,7 @@ contract('token contract', function(accounts) {
             assert.fail("transfer should fail");
         }).catch(function(error){
             assert( Helpers.throwErrorMessage(error), "expected throw got " + error);
+            //assert.isAbove(error.message.search('revert'), -1, 'Revert opcode error must be returned');
         });
     });
 
@@ -167,7 +171,7 @@ contract('token contract', function(accounts) {
         return tokenContract.transfer("0x0000000000000000000000000000000000000000", value, {from:accounts[7]}).then(function(){
             assert.fail("transfer should fail");
         }).catch(function(error){
-            assert( Helpers.throwErrorMessage(error), error);
+            assert.isAbove(error.message.search('revert'), -1, 'Revert opcode error must be returned');
         });
     });
 
@@ -177,7 +181,7 @@ contract('token contract', function(accounts) {
         return tokenContract.transfer(tokenContract.address, value, {from:accounts[7]}).then(function(){
             assert.fail("transfer should fail");
         }).catch(function(error){
-            assert( Helpers.throwErrorMessage(error), error);
+            assert.isAbove(error.message.search('revert'), -1, 'Revert opcode error must be returned');
         });
     });
 
@@ -210,7 +214,7 @@ contract('token contract', function(accounts) {
         return tokenContract.transferFrom(accounts[8], accounts[7], value, {from:accounts[9]}).then(function(){
             assert.fail("transfer should fail");
         }).catch(function(error){
-            assert( Helpers.throwErrorMessage(error), error);
+            assert( Helpers.throwErrorMessage(error), "expected throw got " + error);
         });
     });
 
@@ -220,7 +224,8 @@ contract('token contract', function(accounts) {
         return tokenContract.transferFrom(accounts[8], "0x0000000000000000000000000000000000000000", value, {from:accounts[9]}).then(function(){
             assert.fail("transfer should fail");
         }).catch(function(error){
-            assert( Helpers.throwErrorMessage(error),  error);
+
+            assert.isAbove(error.message.search('revert'), -1, 'Revert opcode error must be returned');
         });
     });
 
@@ -230,7 +235,7 @@ contract('token contract', function(accounts) {
         return tokenContract.transferFrom(accounts[8], tokenContract.address, value, {from:accounts[9]}).then(function(){
             assert.fail("transfer should fail");
         }).catch(function(error){
-            assert( Helpers.throwErrorMessage(error), error);
+            assert.isAbove(error.message.search('revert'), -1, 'Revert opcode error must be returned');
         });
     });
 
@@ -309,7 +314,7 @@ contract('token contract', function(accounts) {
         }).then(function(){
             assert.fail("burn should fail");
         }).catch(function(error){
-            assert( Helpers.throwErrorMessage(error),  error);
+            assert.isAbove(error.message.search('revert'), -1, 'Revert opcode error must be returned');
         });
     });
 
