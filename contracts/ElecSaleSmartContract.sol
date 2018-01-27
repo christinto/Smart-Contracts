@@ -17,28 +17,28 @@ contract ElecSaleSmartContract is ElecApprover{
     address _multiSigWallet,
     ElecWhitelist _whiteListContract,
     uint _totalTokenSupply,
-    uint _premintedTokenSupply,
-    uint _cappedSaleStartTime,
-    uint _publicSaleStartTime,
-    uint _publicSaleEndTime,
+    uint _companyTokenSupply,
+    uint saleStartTime,
+    uint _firstRoundTime,
+    uint _saleEndTime,
     uint _lockedDays)
 
     ElecApprover( _whiteListContract,
-    _cappedSaleStartTime,
-    _publicSaleStartTime,
-    _publicSaleEndTime )
+    saleStartTime,
+    _firstRoundTime,
+    _saleEndTime )
     {
         admin = _admin;
         multiSigWallet = _multiSigWallet;
 
         token = new ElecTokenSmartContract( _totalTokenSupply,
-        _cappedSaleStartTime,
-        _publicSaleEndTime + 7 days, /// 7 can changed depending on each project
+        saleStartTime,
+        _saleEndTime,
         _lockedDays, ///change depending on each project
         _admin );
 
         // transfer preminted tokens to company wallet
-        token.transfer( multiSigWallet, _premintedTokenSupply );
+        token.transfer( multiSigWallet, _companyTokenSupply );
     }
 
     function setHaltSale( bool halt ) {

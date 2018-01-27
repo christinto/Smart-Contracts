@@ -8,45 +8,57 @@ contract ElecApprover {
     ElecWhitelist public list;
     mapping(address=>uint)    public participated;
 
-    uint                      public cappedSaleStartTime;
-    uint                      public openSaleStartTime;
-    uint                      public openSaleEndTime;
+    uint                      public saleStartTime;
+    uint                      public firstRoundTime;
+    uint                      public saleEndTime;
+    uint                      public xtime = 5;
 
     using SafeMath for uint;
 
 
     function ElecApprover( ElecWhitelist _whitelistContract,
-    uint                      _cappedSaleStartTime,
-    uint                      _openSaleStartTime,
-    uint                      _openSaleEndTime ) {
+    uint                      _saleStartTime,
+    uint                      _firstRoundTime,
+    uint                      _saleEndTime ) {
         list = _whitelistContract;
-        cappedSaleStartTime = _cappedSaleStartTime;
-        openSaleStartTime = _openSaleStartTime;
-        openSaleEndTime = _openSaleEndTime;
+        saleStartTime = _saleStartTime;
+        firstRoundTime = _firstRoundTime;
+        saleEndTime = _saleEndTime;
 
         require( list != ElecWhitelist(0x0) );
-        require( cappedSaleStartTime < openSaleStartTime );
-        require(  openSaleStartTime < openSaleEndTime );
+        require( saleStartTime < firstRoundTime );
+        require(  firstRoundTime < saleEndTime );
     }
 
     // this is a seperate function so user could query it before crowdsale starts
     function contributorCap( address contributor ) constant returns(uint) {
-        return list.getCap( contributor );
+        uint  cap= list.getCap( contributor );
+        uint higherCap = cap;
+
+        if ( now > firstRoundTime ) {
+            higherCap = cap.mul(xtime);
+        }
+        return higherCap;
     }
 
 
     function eligible( address contributor, uint amountInWei ) constant returns(uint) {
-        if( now < cappedSaleStartTime ) return 0;
-        if( now >= openSaleEndTime ) return 0;
+        if( now < saleStartTime ) return 0;
+        if( now >= saleEndTime ) return 0;
 
         uint cap = contributorCap( contributor );
 
         if( cap == 0 ) return 0;
 
-        uint remainedCap = cap.sub( participated[ contributor ] );
+        uint higherCap = cap;
+        if ( now > firstRoundTime ) {
+            higherCap = cap.mul(xtime);
+        }
 
+        uint remainedCap = higherCap.sub(participated[ contributor ]);
         if( remainedCap > amountInWei ) return amountInWei;
-        else return remainedCap;
+              else return remainedCap;
+
     }
 
     function eligibleTestAndIncrement( address contributor, uint amountInWei ) internal returns(uint) {
@@ -63,10 +75,10 @@ contract ElecApprover {
     }
 
     function saleEnded() constant returns(bool) {
-        return now > openSaleEndTime;
+        return now > saleEndTime;
     }
 
     function saleStarted() constant returns(bool) {
-        return now >= cappedSaleStartTime;
+        return now >= saleStartTime;
     }
 }
