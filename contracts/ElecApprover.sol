@@ -46,7 +46,7 @@ contract ElecApprover {
         if( now < saleStartTime ) return 0;
         if( now >= saleEndTime ) return 0;
 
-        uint cap = contributorCap( contributor );
+        uint cap = list.getCap( contributor );
 
         if( cap == 0 ) return 0;
 
