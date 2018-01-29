@@ -18,13 +18,15 @@ contract ElecSaleSmartContract is ElecApprover{
     ElecWhitelist _whiteListContract,
     uint _totalTokenSupply,
     uint _companyTokenSupply,
-    uint saleStartTime,
+    uint _saleStartTime,
     uint _firstRoundTime,
     uint _saleEndTime,
     uint _lockedDays)
 
+    public
+
     ElecApprover( _whiteListContract,
-    saleStartTime,
+    _saleStartTime,
     _firstRoundTime,
     _saleEndTime )
     {
@@ -32,7 +34,7 @@ contract ElecSaleSmartContract is ElecApprover{
         multiSigWallet = _multiSigWallet;
 
         token = new ElecTokenSmartContract( _totalTokenSupply,
-        saleStartTime,
+        _saleStartTime,
         _saleEndTime,
         _lockedDays, ///change depending on each project
         _admin );
@@ -41,17 +43,17 @@ contract ElecSaleSmartContract is ElecApprover{
         token.transfer( multiSigWallet, _companyTokenSupply );
     }
 
-    function setHaltSale( bool halt ) {
+    function setHaltSale( bool halt ) public {
         require( msg.sender == admin );
         haltSale = halt;
     }
 
-    function() payable {
+    function() public payable {
         buy( msg.sender );
     }
 
     event ProxyBuy( bytes32 indexed _proxy, address _recipient, uint _amountInWei );
-    function proxyBuy( bytes32 proxy, address recipient ) payable returns(uint){
+    function proxyBuy( bytes32 proxy, address recipient ) public payable returns(uint){
         uint amount = buy( recipient );
         proxyPurchases[proxy] = proxyPurchases[proxy].add(amount);
         ProxyBuy( proxy, recipient, amount );
@@ -61,7 +63,7 @@ contract ElecSaleSmartContract is ElecApprover{
     }
 
     event Buy( address _buyer, uint _tokens, uint _payedWei );
-    function buy( address recipient ) payable returns(uint){
+    function buy( address recipient ) public payable returns(uint){
         require( tx.gasprice <= 50000000000 wei );
 
         require( ! haltSale );
@@ -96,7 +98,7 @@ contract ElecSaleSmartContract is ElecApprover{
 
     event FinalizeSale();
     // function is callable by everyone
-    function finalizeSale() {
+    function finalizeSale() public {
         require( saleEnded() );
         require( msg.sender == admin );
 
@@ -108,7 +110,7 @@ contract ElecSaleSmartContract is ElecApprover{
 
     // ETH balance is always expected to be 0.
     // but in case something went wrong, we use this function to extract the eth.
-    function emergencyDrain(ERC20 anyToken) returns(bool){
+    function emergencyDrain(ERC20 anyToken) public returns(bool){
         require( msg.sender == admin );
         require( saleEnded() );
 
@@ -125,8 +127,8 @@ contract ElecSaleSmartContract is ElecApprover{
 
     // just to check that funds goes to the right place
     // tokens are not given in return
-    function debugBuy() payable {
+    /*function debugBuy() public payable {
         require( msg.value == 123 );
         sendETHToMultiSig( msg.value );
-    }
+    }*/
 }

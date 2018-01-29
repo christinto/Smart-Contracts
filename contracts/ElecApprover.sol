@@ -19,7 +19,7 @@ contract ElecApprover {
     function ElecApprover( ElecWhitelist _whitelistContract,
     uint                      _saleStartTime,
     uint                      _firstRoundTime,
-    uint                      _saleEndTime ) {
+    uint                      _saleEndTime ) public {
         list = _whitelistContract;
         saleStartTime = _saleStartTime;
         firstRoundTime = _firstRoundTime;
@@ -31,7 +31,7 @@ contract ElecApprover {
     }
 
     // this is a seperate function so user could query it before crowdsale starts
-    function contributorCap( address contributor ) constant returns(uint) {
+    function contributorCap( address contributor ) public constant returns(uint) {
         uint  cap= list.getCap( contributor );
         uint higherCap = cap;
 
@@ -42,7 +42,7 @@ contract ElecApprover {
     }
 
 
-    function eligible( address contributor, uint amountInWei ) constant returns(uint) {
+    function eligible( address contributor, uint amountInWei ) public constant returns(uint) {
         if( now < saleStartTime ) return 0;
         if( now >= saleEndTime ) return 0;
 
@@ -70,15 +70,15 @@ contract ElecApprover {
     }
 
 
-    function contributedCap(address _contributor) constant returns(uint) {
+    function contributedCap(address _contributor) public constant returns(uint) {
         return participated[_contributor];
     }
 
-    function saleEnded() constant returns(bool) {
+    function saleEnded() public constant returns(bool) {
         return now > saleEndTime;
     }
 
-    function saleStarted() constant returns(bool) {
+    function saleStarted() public constant returns(bool) {
         return now >= saleStartTime;
     }
 }

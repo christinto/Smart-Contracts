@@ -27,7 +27,7 @@ contract ElecTokenSmartContract is StandardToken, Ownable {
         _;
     }
 
-    function ElecTokenSmartContract( uint tokenTotalAmount, uint startTime, uint endTime, uint lockedTime, address admin ) {
+    function ElecTokenSmartContract( uint tokenTotalAmount, uint startTime, uint endTime, uint lockedTime, address admin ) public {
         // Mint all tokens. Then disable minting forever.
         balances[msg.sender] = tokenTotalAmount;
         totalSupply = tokenTotalAmount;
@@ -42,6 +42,7 @@ contract ElecTokenSmartContract is StandardToken, Ownable {
     }
 
     function transfer(address _to, uint _value)
+    public
     onlyWhenTransferEnabled
     validDestination(_to)
     returns (bool) {
@@ -49,6 +50,7 @@ contract ElecTokenSmartContract is StandardToken, Ownable {
     }
 
     function transferFrom(address _from, address _to, uint _value)
+    public
     onlyWhenTransferEnabled
     validDestination(_to)
     returns (bool) {
@@ -57,7 +59,7 @@ contract ElecTokenSmartContract is StandardToken, Ownable {
 
     event Burn(address indexed _burner, uint _value);
 
-    function burn(uint _value) onlyWhenTransferEnabled
+    function burn(uint _value) public onlyWhenTransferEnabled
     returns (bool){
         balances[msg.sender] = balances[msg.sender].sub(_value);
         totalSupply = totalSupply.sub(_value);
@@ -67,7 +69,7 @@ contract ElecTokenSmartContract is StandardToken, Ownable {
     }
 
 
-    function emergencyERC20Drain( ERC20 token, uint amount ) onlyOwner {
+    function emergencyERC20Drain( ERC20 token, uint amount ) public onlyOwner {
         token.transfer( owner, amount );
     }
 }
