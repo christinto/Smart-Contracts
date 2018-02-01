@@ -413,7 +413,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 1471,
+          "SourceUnit": 1474,
           "absolutePath": "/Users/tuongbui/Storage/Electrify/Smart-Contracts/contracts/zeppelin/token/StandardToken.sol",
           "file": "./zeppelin/token/StandardToken.sol",
           "scope": 863,
@@ -428,7 +428,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 1192,
+          "SourceUnit": 1195,
           "absolutePath": "/Users/tuongbui/Storage/Electrify/Smart-Contracts/contracts/zeppelin/ownership/Ownable.sol",
           "file": "./zeppelin/ownership/Ownable.sol",
           "scope": 863,
@@ -444,22 +444,22 @@
       {
         "attributes": {
           "contractDependencies": [
-            1191,
-            1260,
-            1303,
-            1332,
-            1470
+            1194,
+            1263,
+            1306,
+            1335,
+            1473
           ],
           "contractKind": "contract",
           "documentation": null,
           "fullyImplemented": true,
           "linearizedBaseContracts": [
             862,
-            1191,
-            1470,
-            1260,
-            1303,
-            1332
+            1194,
+            1473,
+            1263,
+            1306,
+            1335
           ],
           "name": "ElecTokenSmartContract",
           "scope": 863
@@ -476,7 +476,7 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "StandardToken",
-                  "referencedDeclaration": 1470,
+                  "referencedDeclaration": 1473,
                   "type": "contract StandardToken"
                 },
                 "id": 623,
@@ -499,7 +499,7 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "Ownable",
-                  "referencedDeclaration": 1191,
+                  "referencedDeclaration": 1194,
                   "type": "contract Ownable"
                 },
                 "id": 625,
@@ -817,7 +817,7 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1484,
+                                  "referencedDeclaration": 1487,
                                   "type": "uint256",
                                   "value": "now"
                                 },
@@ -952,7 +952,7 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1484,
+                                  "referencedDeclaration": 1487,
                                   "type": "uint256",
                                   "value": "now"
                                 },
@@ -1014,7 +1014,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 1485,
+                                      "referencedDeclaration": 1488,
                                       "type": "function (bool) pure",
                                       "value": "require"
                                     },
@@ -1055,7 +1055,7 @@
                                               "overloadedDeclarations": [
                                                 null
                                               ],
-                                              "referencedDeclaration": 1482,
+                                              "referencedDeclaration": 1485,
                                               "type": "msg",
                                               "value": "msg"
                                             },
@@ -1191,7 +1191,7 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1485,
+                              "referencedDeclaration": 1488,
                               "type": "function (bool) pure",
                               "value": "require"
                             },
@@ -1327,7 +1327,7 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1485,
+                              "referencedDeclaration": 1488,
                               "type": "function (bool) pure",
                               "value": "require"
                             },
@@ -1404,7 +1404,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 1511,
+                                      "referencedDeclaration": 1514,
                                       "type": "contract ElecTokenSmartContract",
                                       "value": "this"
                                     },
@@ -1642,7 +1642,7 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1204,
+                                  "referencedDeclaration": 1207,
                                   "type": "mapping(address => uint256)",
                                   "value": "balances"
                                 },
@@ -1668,7 +1668,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 1482,
+                                      "referencedDeclaration": 1485,
                                       "type": "msg",
                                       "value": "msg"
                                     },
@@ -1729,7 +1729,7 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1307,
+                              "referencedDeclaration": 1310,
                               "type": "uint256",
                               "value": "totalSupply"
                             },
@@ -1797,7 +1797,7 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1331,
+                              "referencedDeclaration": 1334,
                               "type": "function (address,address,uint256)",
                               "value": "Transfer"
                             },
@@ -1879,7 +1879,7 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1482,
+                                  "referencedDeclaration": 1485,
                                   "type": "msg",
                                   "value": "msg"
                                 },
@@ -2114,7 +2114,7 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1482,
+                                  "referencedDeclaration": 1485,
                                   "type": "msg",
                                   "value": "msg"
                                 },
@@ -2165,7 +2165,7 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1190,
+                              "referencedDeclaration": 1193,
                               "type": "function (address)",
                               "value": "transferOwnership"
                             },
@@ -2216,7 +2216,7 @@
               "payable": false,
               "scope": 862,
               "stateMutability": "nonpayable",
-              "superFunction": 1247,
+              "superFunction": 1250,
               "visibility": "public"
             },
             "children": [
@@ -2412,7 +2412,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "transfer",
-                              "referencedDeclaration": 1247,
+                              "referencedDeclaration": 1250,
                               "type": "function (address,uint256) returns (bool)"
                             },
                             "children": [
@@ -2422,7 +2422,7 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1512,
+                                  "referencedDeclaration": 1515,
                                   "type": "contract super ElecTokenSmartContract",
                                   "value": "super"
                                 },
@@ -2492,7 +2492,7 @@
               "payable": false,
               "scope": 862,
               "stateMutability": "nonpayable",
-              "superFunction": 1408,
+              "superFunction": 1411,
               "visibility": "public"
             },
             "children": [
@@ -2718,7 +2718,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "transferFrom",
-                              "referencedDeclaration": 1408,
+                              "referencedDeclaration": 1411,
                               "type": "function (address,address,uint256) returns (bool)"
                             },
                             "children": [
@@ -2728,7 +2728,7 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1512,
+                                  "referencedDeclaration": 1515,
                                   "type": "contract super ElecTokenSmartContract",
                                   "value": "super"
                                 },
@@ -3011,7 +3011,7 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1204,
+                                  "referencedDeclaration": 1207,
                                   "type": "mapping(address => uint256)",
                                   "value": "balances"
                                 },
@@ -3037,7 +3037,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 1482,
+                                      "referencedDeclaration": 1485,
                                       "type": "msg",
                                       "value": "msg"
                                     },
@@ -3083,7 +3083,7 @@
                                   "isPure": false,
                                   "lValueRequested": false,
                                   "member_name": "sub",
-                                  "referencedDeclaration": 1122,
+                                  "referencedDeclaration": 1125,
                                   "type": "function (uint256,uint256) pure returns (uint256)"
                                 },
                                 "children": [
@@ -3103,7 +3103,7 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 1204,
+                                          "referencedDeclaration": 1207,
                                           "type": "mapping(address => uint256)",
                                           "value": "balances"
                                         },
@@ -3129,7 +3129,7 @@
                                               "overloadedDeclarations": [
                                                 null
                                               ],
-                                              "referencedDeclaration": 1482,
+                                              "referencedDeclaration": 1485,
                                               "type": "msg",
                                               "value": "msg"
                                             },
@@ -3200,7 +3200,7 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1307,
+                              "referencedDeclaration": 1310,
                               "type": "uint256",
                               "value": "totalSupply"
                             },
@@ -3236,7 +3236,7 @@
                                   "isPure": false,
                                   "lValueRequested": false,
                                   "member_name": "sub",
-                                  "referencedDeclaration": 1122,
+                                  "referencedDeclaration": 1125,
                                   "type": "function (uint256,uint256) pure returns (uint256)"
                                 },
                                 "children": [
@@ -3246,7 +3246,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 1307,
+                                      "referencedDeclaration": 1310,
                                       "type": "uint256",
                                       "value": "totalSupply"
                                     },
@@ -3346,7 +3346,7 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1482,
+                                  "referencedDeclaration": 1485,
                                   "type": "msg",
                                   "value": "msg"
                                 },
@@ -3419,7 +3419,7 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1331,
+                              "referencedDeclaration": 1334,
                               "type": "function (address,address,uint256)",
                               "value": "Transfer"
                             },
@@ -3445,7 +3445,7 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1482,
+                                  "referencedDeclaration": 1485,
                                   "type": "msg",
                                   "value": "msg"
                                 },
@@ -3606,7 +3606,7 @@
                         "attributes": {
                           "contractScope": null,
                           "name": "ERC20",
-                          "referencedDeclaration": 1303,
+                          "referencedDeclaration": 1306,
                           "type": "contract ERC20"
                         },
                         "id": 845,
@@ -3673,7 +3673,7 @@
                       "overloadedDeclarations": [
                         null
                       ],
-                      "referencedDeclaration": 1171,
+                      "referencedDeclaration": 1174,
                       "type": "modifier ()",
                       "value": "onlyOwner"
                     },
@@ -3722,7 +3722,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "transfer",
-                              "referencedDeclaration": 1323,
+                              "referencedDeclaration": 1326,
                               "type": "function (address,uint256) external returns (bool)"
                             },
                             "children": [
@@ -3751,7 +3751,7 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1151,
+                              "referencedDeclaration": 1154,
                               "type": "address",
                               "value": "owner"
                             },
@@ -3809,5 +3809,5 @@
   },
   "networks": {},
   "schemaVersion": "1.0.1",
-  "updatedAt": "2018-02-01T02:50:52.027Z"
+  "updatedAt": "2018-02-01T03:58:53.384Z"
 }

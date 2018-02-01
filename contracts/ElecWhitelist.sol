@@ -3,9 +3,10 @@ pragma solidity ^0.4.0;
 import './zeppelin/ownership/Ownable.sol';
 
 contract ElecWhitelist is Ownable {
-    // cap is in wei. The value of 7 is just a stub.
-    // after kyc registration ends, we change it to the actual value with setsersCap
-    uint public communityusersCap = 7;
+    // cap is in wei. The value of 1 is just a stub.
+    // after kyc registration ends, we change it to the actual value with setUsersCap
+    /// Currenty we set the cap to 1 ETH and the owner is able to change it in the future by call function: setUsersCap
+    uint public communityusersCap = (10**18);
     mapping(address=>uint) public addressCap;
 
     function ElecWhitelist() public {}
