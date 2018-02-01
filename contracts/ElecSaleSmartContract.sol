@@ -73,7 +73,11 @@ contract ElecSaleSmartContract is ElecApprover{
         require( ! saleEnded() );
 
         // check min buy at least 0.5 ETH;
-        require( msg.value >= minCap);
+        uint weiContributedCap = contributedInternalCap(recipient);
+
+        if (weiContributedCap == 0 ) require( msg.value >= minCap);
+
+
 
         uint weiPayment = eligibleTestAndIncrement( recipient, msg.value );
 

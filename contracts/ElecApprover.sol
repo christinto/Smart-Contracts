@@ -71,8 +71,17 @@ contract ElecApprover {
 
 
     function contributedCap(address _contributor) public constant returns(uint) {
+        if (participated[_contributor] == 0 ) return 0;
+
         return participated[_contributor];
     }
+
+     function contributedInternalCap(address _contributor) view internal returns(uint) {
+         if (participated[_contributor] == 0 ) return 0;
+
+        return participated[_contributor];
+    }
+
 
     function saleEnded() public constant returns(bool) {
         return now > saleEndTime;
