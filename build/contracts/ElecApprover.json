@@ -234,7 +234,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 1173,
+          "SourceUnit": 1192,
           "absolutePath": "/Users/tuongbui/Storage/Electrify/Smart-Contracts/contracts/zeppelin/ownership/Ownable.sol",
           "file": "./zeppelin/ownership/Ownable.sol",
           "scope": 257,
@@ -249,7 +249,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 977,
+          "SourceUnit": 996,
           "absolutePath": "/Users/tuongbui/Storage/Electrify/Smart-Contracts/contracts/ElecWhitelist.sol",
           "file": "./ElecWhitelist.sol",
           "scope": 257,
@@ -264,7 +264,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 1129,
+          "SourceUnit": 1148,
           "absolutePath": "/Users/tuongbui/Storage/Electrify/Smart-Contracts/contracts/zeppelin/math/SafeMath.sol",
           "file": "./zeppelin/math/SafeMath.sol",
           "scope": 257,
@@ -311,7 +311,7 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "ElecWhitelist",
-                  "referencedDeclaration": 976,
+                  "referencedDeclaration": 995,
                   "type": "contract ElecWhitelist"
                 },
                 "id": 22,
@@ -494,7 +494,7 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "SafeMath",
-                  "referencedDeclaration": 1128,
+                  "referencedDeclaration": 1147,
                   "type": "library SafeMath"
                 },
                 "id": 37,
@@ -549,7 +549,7 @@
                         "attributes": {
                           "contractScope": null,
                           "name": "ElecWhitelist",
-                          "referencedDeclaration": 976,
+                          "referencedDeclaration": 995,
                           "type": "contract ElecWhitelist"
                         },
                         "id": 40,
@@ -889,7 +889,7 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1466,
+                              "referencedDeclaration": 1485,
                               "type": "function (bool) pure",
                               "value": "require"
                             },
@@ -901,7 +901,7 @@
                             "attributes": {
                               "argumentTypes": null,
                               "commonType": {
-                                "typeIdentifier": "t_contract$_ElecWhitelist_$976",
+                                "typeIdentifier": "t_contract$_ElecWhitelist_$995",
                                 "typeString": "contract ElecWhitelist"
                               },
                               "isConstant": false,
@@ -952,7 +952,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 976,
+                                      "referencedDeclaration": 995,
                                       "type": "type(contract ElecWhitelist)",
                                       "value": "ElecWhitelist"
                                     },
@@ -1025,7 +1025,7 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1466,
+                              "referencedDeclaration": 1485,
                               "type": "function (bool) pure",
                               "value": "require"
                             },
@@ -1119,7 +1119,7 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1466,
+                              "referencedDeclaration": 1485,
                               "type": "function (bool) pure",
                               "value": "require"
                             },
@@ -1340,7 +1340,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "getCap",
-                              "referencedDeclaration": 965,
+                              "referencedDeclaration": 984,
                               "type": "function (address) view external returns (uint256)"
                             },
                             "children": [
@@ -1465,7 +1465,7 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1465,
+                              "referencedDeclaration": 1484,
                               "type": "uint256",
                               "value": "now"
                             },
@@ -1549,7 +1549,7 @@
                                           "isPure": false,
                                           "lValueRequested": false,
                                           "member_name": "mul",
-                                          "referencedDeclaration": 1065,
+                                          "referencedDeclaration": 1084,
                                           "type": "function (uint256,uint256) pure returns (uint256)"
                                         },
                                         "children": [
@@ -1781,7 +1781,7 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1465,
+                              "referencedDeclaration": 1484,
                               "type": "uint256",
                               "value": "now"
                             },
@@ -1866,7 +1866,7 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1465,
+                              "referencedDeclaration": 1484,
                               "type": "uint256",
                               "value": "now"
                             },
@@ -1986,7 +1986,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "getCap",
-                              "referencedDeclaration": 965,
+                              "referencedDeclaration": 984,
                               "type": "function (address) view external returns (uint256)"
                             },
                             "children": [
@@ -2199,7 +2199,7 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1465,
+                              "referencedDeclaration": 1484,
                               "type": "uint256",
                               "value": "now"
                             },
@@ -2283,7 +2283,7 @@
                                           "isPure": false,
                                           "lValueRequested": false,
                                           "member_name": "mul",
-                                          "referencedDeclaration": 1065,
+                                          "referencedDeclaration": 1084,
                                           "type": "function (uint256,uint256) pure returns (uint256)"
                                         },
                                         "children": [
@@ -2406,7 +2406,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "sub",
-                              "referencedDeclaration": 1103,
+                              "referencedDeclaration": 1122,
                               "type": "function (uint256,uint256) pure returns (uint256)"
                             },
                             "children": [
@@ -2956,7 +2956,7 @@
                                           "isPure": false,
                                           "lValueRequested": false,
                                           "member_name": "add",
-                                          "referencedDeclaration": 1127,
+                                          "referencedDeclaration": 1146,
                                           "type": "function (uint256,uint256) pure returns (uint256)"
                                         },
                                         "children": [
@@ -3316,7 +3316,7 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1465,
+                              "referencedDeclaration": 1484,
                               "type": "uint256",
                               "value": "now"
                             },
@@ -3446,7 +3446,7 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1465,
+                              "referencedDeclaration": 1484,
                               "type": "uint256",
                               "value": "now"
                             },
@@ -3504,5 +3504,5 @@
   },
   "networks": {},
   "schemaVersion": "1.0.1",
-  "updatedAt": "2018-01-29T03:12:56.303Z"
+  "updatedAt": "2018-02-01T02:59:37.215Z"
 }

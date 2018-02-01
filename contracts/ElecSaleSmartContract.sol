@@ -10,6 +10,8 @@ contract ElecSaleSmartContract is ElecApprover{
     ElecTokenSmartContract public token;
     uint                public raisedWei;
     bool                public haltSale;
+    uint                constant toWei = (10**18);
+    uint                public minCap = toWei.div(2);
 
     mapping(bytes32=>uint) public proxyPurchases;
 
@@ -70,9 +72,13 @@ contract ElecSaleSmartContract is ElecApprover{
         require( saleStarted() );
         require( ! saleEnded() );
 
+        // check min buy at least 0.5 ETH;
+        require( msg.value >= minCap);
+
         uint weiPayment = eligibleTestAndIncrement( recipient, msg.value );
 
         require( weiPayment > 0 );
+
 
         // send to msg.sender, not to recipient
         if( msg.value > weiPayment ) {
