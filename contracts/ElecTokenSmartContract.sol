@@ -13,10 +13,11 @@ contract ElecTokenSmartContract is StandardToken, Ownable {
     uint    public lockedDays = 0;
 
     address public  tokenSaleContract;
+    address public adminAddress;
 
     modifier onlyWhenTransferEnabled() {
-        if( now <= (saleEndTime + lockedDays * 1 days) && now >= saleStartTime ) {
-            require( msg.sender == tokenSaleContract );
+        if( now <= (saleEndTime + lockedDays * 7 days) && now >= saleStartTime ) {
+            require( msg.sender == tokenSaleContract || msg.sender == adminAddress );
         }
         _;
     }
@@ -38,6 +39,7 @@ contract ElecTokenSmartContract is StandardToken, Ownable {
         lockedDays = lockedTime;
 
         tokenSaleContract = msg.sender;
+        adminAddress = admin;
         transferOwnership(admin); // admin could drain tokens that were sent here by mistake
     }
 
