@@ -11,7 +11,7 @@ contract ElecApprover {
     uint                      public saleStartTime;
     uint                      public firstRoundTime;
     uint                      public saleEndTime;
-    uint                      public xtime = 5;
+    uint                      public xtime = 5;/// multiply the cap
 
     using SafeMath for uint;
 

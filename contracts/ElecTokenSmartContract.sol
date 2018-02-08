@@ -16,7 +16,7 @@ contract ElecTokenSmartContract is StandardToken, Ownable {
     address public adminAddress;
 
     modifier onlyWhenTransferEnabled() {
-        if( now <= (saleEndTime + lockedDays * 7 days) && now >= saleStartTime ) {
+        if( now <= (saleEndTime + lockedDays * 1 days) && now >= saleStartTime ) {
             require( msg.sender == tokenSaleContract || msg.sender == adminAddress );
         }
         _;
