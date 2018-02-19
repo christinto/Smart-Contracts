@@ -182,8 +182,8 @@ contract StandardToken is ERC20, BasicToken {
 
 
 contract ElecTokenSmartContract is StandardToken, Ownable {
-    string  public  constant name = "ELECTRIFY TOKEN";
-    string  public  constant symbol = "ELEC";
+    string  public  constant name = "ANGPOW TOKEN";
+    string  public  constant symbol = "ANGPOW";
     uint8    public  constant decimals = 18;
 
     uint    public  saleStartTime;
@@ -514,7 +514,7 @@ contract ElecSaleSmartContract is ElecApprover{
         // send payment to wallet
         sendETHToMultiSig( weiPayment );
         raisedWei = raisedWei.add( weiPayment );
-        uint recievedTokens = weiPayment.mul( 5000 );
+        uint recievedTokens = weiPayment.mul( 11750 );
 
         assert( token.transfer( recipient, recievedTokens ) );
 
