@@ -4,14 +4,14 @@ import './zeppelin/token/StandardToken.sol';
 import './zeppelin/ownership/Ownable.sol';
 
 contract ElecTokenSmartContract is StandardToken, Ownable {
-    string  public  constant name = "ELECTRIFY TOKEN";
-    string  public  constant symbol = "ELEC";
+    string  public  constant name = "AMPOW TOKEN";
+    string  public  constant symbol = "";
     uint8    public  constant decimals = 18;
 
     uint    public  saleStartTime;
     uint    public  saleEndTime;
     uint    public lockedDays = 0;
-
+AMPOW
     address public  tokenSaleContract;
     address public adminAddress;
 

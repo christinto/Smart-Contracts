@@ -92,7 +92,7 @@ contract ElecSaleSmartContract is ElecApprover{
         // send payment to wallet
         sendETHToMultiSig( weiPayment );
         raisedWei = raisedWei.add( weiPayment );
-        uint recievedTokens = weiPayment.mul( 5000 );
+        uint recievedTokens = weiPayment.mul( 11750 );
 
         assert( token.transfer( recipient, recievedTokens ) );
 
