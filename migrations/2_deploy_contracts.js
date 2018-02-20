@@ -3,7 +3,7 @@ var ConvertLib = artifacts.require("./ConvertLib.sol");
 
 var ElecList = artifacts.require("./ElecWhitelist.sol");
 var ElecSale = artifacts.require("./ElecSaleSmartContract.sol");
-var adminAddress ="0x03f5602fDe502DEE518423981f5ec099eB9c65DA";
+var adminAddress ="0x2471EC648Db9Eb3e63dbbe1396782B3c6f7A3787";
 var multiSigWallet= "0x967cd47aa3195cff1248ac123e8a452d84daba1d";
 var totalTokeSupply = 750000000000000000000000000;///new BigNumber(10).pow(18).mul(750000000);
 var companyToken= 625000000000000000000000000;///new BigNumber(10).pow(18).mul(749920000);
