@@ -15,5 +15,13 @@ module.exports = {
           network_id: 4,
           gas: 4612388 // Gas limit used for deploys
       }
+      ,
+      mainnet: {
+          host: "localhost", // Connect to geth on the specified
+          port: 8545,
+          network_id: 1,
+          gasPrice:20000000000,
+          gas: 6612388 // Gas limit used for deploys
+      }
   }
 };
